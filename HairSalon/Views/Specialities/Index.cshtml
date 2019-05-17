@@ -1,0 +1,24 @@
+@using HairSalon.Models;
+
+<h1>Snappy Snips</h1>
+<hr />
+<h2>Specialities:</h2>
+
+@if(Model.Count < 1)
+{
+    <p>There are no specialities to display!</p>
+}
+else
+{
+    <p>Click on speciality to see and manage stylists</p>
+    <ul>
+
+    @foreach (var speciality in Model)
+    {
+      <li><a href="/specialities/@speciality.GetId()">@speciality.GetName()</a></li>
+    }
+  </ul>
+}
+
+<h4><a href="/specialities/new">Add a new speciality</a></h4>
+<h4><a href="/">Return home</a></h4>
