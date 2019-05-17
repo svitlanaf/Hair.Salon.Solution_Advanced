@@ -286,7 +286,6 @@ namespace HairSalon.Models
       speciality_id.ParameterName = "@SpecialityId";
       speciality_id.Value = newSpeciality.GetId();
       cmd.Parameters.Add(speciality_id);
-      Console.WriteLine(speciality_id);
 
       MySqlParameter stylist_id = new MySqlParameter();
       stylist_id.ParameterName = "@StylistId";
