@@ -13,6 +13,7 @@ namespace HairSalon.Tests
         {
         Stylist.ClearAll();
         Client.ClearAll();
+        Speciality.ClearAll();
         }
 
         public StylistTest()
