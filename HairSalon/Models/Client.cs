@@ -251,11 +251,11 @@ namespace HairSalon.Models
         var cmd = conn.CreateCommand() as MySqlCommand;
         cmd.CommandText = @"INSERT INTO stylists_clients (stylist_id, client_id) VALUES (@StylistId, @ClientId);";
         MySqlParameter stylist_id = new MySqlParameter();
-        stylist_id.ParameterName = "@DoctorId";
+        stylist_id.ParameterName = "@StylistId";
         stylist_id.Value = newStylist.GetId();
         cmd.Parameters.Add(stylist_id);
         MySqlParameter client_id = new MySqlParameter();
-        client_id.ParameterName = "@PatientId";
+        client_id.ParameterName = "@ClientId";
         client_id.Value = _id;
         cmd.Parameters.Add(client_id);
         cmd.ExecuteNonQuery();
@@ -274,7 +274,7 @@ namespace HairSalon.Models
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"UPDATE clients SET name = @newName, detailes = @newDetailes, appointment = @NewAppointment WHERE id = (@searchId);";
+      cmd.CommandText = @"UPDATE clients SET name = @newName, details = @newDetails, appointment = @NewAppointment WHERE id = (@searchId);";
       MySqlParameter searchId = new MySqlParameter();
       searchId.ParameterName = "@searchId";
       searchId.Value = _id;
@@ -285,10 +285,10 @@ namespace HairSalon.Models
       name.Value = newName;
       cmd.Parameters.Add(name);
 
-      MySqlParameter detailes = new MySqlParameter();
-      detailes.ParameterName = "@newDetailes";
-      detailes.Value = newDetails;
-      cmd.Parameters.Add(detailes);
+      MySqlParameter details = new MySqlParameter();
+      details.ParameterName = "@newDetails";
+      details.Value = newDetails;
+      cmd.Parameters.Add(details);
 
       MySqlParameter appointment = new MySqlParameter();
       appointment.ParameterName = "@newAppointment";
