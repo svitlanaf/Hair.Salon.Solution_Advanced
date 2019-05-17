@@ -1,0 +1,17 @@
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Tests.deps.json
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Tests.runtimeconfig.json
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Tests.runtimeconfig.dev.json
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Tests.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Tests.pdb
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.pdb
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.csprojAssemblyReference.cache
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.csproj.CoreCompileInputs.cache
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.AssemblyInfoInputs.cache
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.AssemblyInfo.cs
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.csproj.CopyComplete
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.pdb
