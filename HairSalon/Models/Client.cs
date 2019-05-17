@@ -268,5 +268,43 @@ namespace HairSalon.Models
         }
     }
 
+
+    public void Edit(string newName, string newDetails, DateTime newAppointment)
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"UPDATE clients SET name = @newName, detailes = @newDetailes, appointment = @NewAppointment WHERE id = (@searchId);";
+      MySqlParameter searchId = new MySqlParameter();
+      searchId.ParameterName = "@searchId";
+      searchId.Value = _id;
+      cmd.Parameters.Add(searchId);
+
+      MySqlParameter name = new MySqlParameter();
+      name.ParameterName = "@newName";
+      name.Value = newName;
+      cmd.Parameters.Add(name);
+
+      MySqlParameter detailes = new MySqlParameter();
+      detailes.ParameterName = "@newDetailes";
+      detailes.Value = newDetails;
+      cmd.Parameters.Add(detailes);
+
+      MySqlParameter appointment = new MySqlParameter();
+      appointment.ParameterName = "@newAppointment";
+      appointment.Value = newAppointment;
+      cmd.Parameters.Add(appointment);
+      cmd.ExecuteNonQuery();
+      
+      _name = newName;
+      _details = newDetails;
+      _appointment = newAppointment;
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+        }
+    }
+
   }
 }
