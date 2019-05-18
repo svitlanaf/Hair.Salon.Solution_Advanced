@@ -1,2 +1,28 @@
 @using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
+
+<h1>Add a stylist</h1>
+
+<form action="/stylists" method="post">
+  <label for="name">Stylist name:</label>
+ <input required id="name" name="name" type="text"><br>
+ <label for="information">Information:</label>
+ <textarea class= "k-textbox" style="width:100%; height: 70px;" required id="information" name="information" type="text" ></textarea><br>
+
+
+  <select id='specialityId' name='specialityId' type='text'>
+    @foreach (var speciality in @Model)
+        {
+          <option value='@speciality.GetId()'>@speciality.GetName()</option>
+        }
+  </select>
+
+
+  <button type="submit">Add</button>
+</form>
+
+<p><a href="/">Back home</a></p>
+<p><a href="/doctors">Back to stylists</a></p>
+
 

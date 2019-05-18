@@ -1,2 +1,44 @@
 @using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
 
+<h1>Snappy Snips</h1>
+<h2>Speciality: @Model["speciality"].GetName()</h2>
+
+<form method="post" action='/specialities/@Model["speciality"].GetId()/delete'>
+  <button type="submit">Delete</button>
+</form>
+<hr />
+
+@if (@Model["specialityStylists"].Count != 0)
+{
+  <h4>Here are all the stylists of this speciality:</h4>
+  
+    @foreach (var stylist in @Model["specialityStylists"])
+    {
+      @stylist.GetName()<br>
+    }
+  
+}
+
+<h4>Add a stylist to this speciality:</h4>
+
+<form action='/specialities/@Model["speciality"].GetId()/stylists/new' method='post'>
+  <label for='stylistId'>Select a stylist</label>
+  <select id='stylistId' name='stylistId' type='text'>
+
+    @foreach (var stylist in @Model["allStylists"])
+    {
+      <option value='@stylist.GetId()'>@stylist.GetName()</option>
+    }
+
+  </select>
+  <button type='submit'>Add</button>
+</form>
+
+<h3><a href='/stylists/new'>Add a new stylist</a></h3><br>
+
+
+
+
+<p><a href="/">Return to Main Page</a></p>

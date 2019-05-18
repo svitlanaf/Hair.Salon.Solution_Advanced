@@ -1,2 +1,60 @@
 @using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
 
+<h1>Snappy Snips</h1>
+<h2>Stylist: @Model["stylist"].GetName()</h2>
+
+<form method="post" action='/stylists/@Model["stylist"].GetId()/delete'>
+  <button type="submit">Delete</button>
+</form>
+<hr />
+
+@if (@Model["stylistClients"].Count != 0)
+{
+  <h4>Here are all the clients of this stylist:</h4>
+  
+    @foreach (var client in @Model["stylistClients"])
+    {
+      @client.GetName()<br>
+      @client.GetDetails()<br>
+      <p>Appointment </p>@client.GetAppointment()<br>
+      <br>
+    }
+  
+}
+
+
+  <h4>Here are all the specialities of this stylist:</h4>
+  
+    @foreach (var specialty in @Model["allStylistSpecialty"])
+    {
+      @specialty.GetName();
+      <br>
+    }
+
+
+<h4>Add an existing client to this stylist:</h4>
+
+<form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
+  <label for='clientId'>Select a client</label>
+  
+  <select id='clientId' name='clientId' type='text'>
+
+    @foreach (var client in @Model["allClients"])
+    {
+      <option value='@client.GetId()'>@client.GetName()</option>
+    }
+
+  </select>
+  <button type='submit'>Add</button>
+</form>
+
+
+
+<h3><a href='/clients/new'>Add a new client</a></h3><br>
+
+
+
+
+<p><a href="/">Return to Main Page</a></p>
