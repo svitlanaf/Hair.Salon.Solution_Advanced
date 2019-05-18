@@ -1,0 +1,12 @@
+@using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
+
+
+<form action="/stylists/@Model.GetId()" method="post">
+ <label for="name">Stylist Name:</label>
+ <input required id="name" name="name" type="text" value="@Model.GetName()"><br>
+ <!-- <label for="Information">Information:</label>
+ <textarea class= "k-textbox" style="width:100%; height: 70px;" required id="information" name="information" type="text">@Model.GetInformation()</textarea><br> -->
+ <button type="submit">Save</button>
+</form>

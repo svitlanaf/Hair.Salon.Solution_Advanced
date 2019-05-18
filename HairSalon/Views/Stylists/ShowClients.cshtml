@@ -1,0 +1,26 @@
+@using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
+
+<h1>Snappy Snips</h1>
+<hr />
+
+<h2>Stylist: @Model["stylist"].GetName()</h2><br>
+<p>@Model["stylist"].GetInformation()</p><br>
+
+
+@if (@Model["stylistClients"].Count != 0)
+{
+  <h4>Clients of this stylist:</h4>
+  
+    @foreach (var client in @Model["stylistClients"])
+    {
+      <p><strong>Name: </strong></p>@client.GetName()<br>
+      <p><strong>Details: </strong></p>@client.GetDetails()<br>
+      <p><strong>Appointment </strong></p>@client.GetAppointment()<br>
+      <br>
+    }
+  
+}
+
+<h3><a href='/stylists'>Back to stylists</a></h3>

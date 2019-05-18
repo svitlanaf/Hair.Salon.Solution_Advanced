@@ -6,6 +6,11 @@
 <hr />
 <h2>Stylists:</h2>
 
+@if(Model.Count < 1)
+{
+    <p>There are no stylists to display! To add a new stylist you need to select their speciality first.</p>
+}
+
 @if (Model.Count != 0)
 {
   
@@ -16,5 +21,5 @@
   
 }
 
-<h4><a href="/stylist/new">Add a new stylist</a></h4>
+<!-- <h4><a href="/stylists/new">Add a new stylist</a></h4> -->
 <h4><a href="/">Return home</a></h4>

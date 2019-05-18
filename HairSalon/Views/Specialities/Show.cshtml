@@ -29,7 +29,9 @@
 
     @foreach (var stylist in @Model["allStylists"])
     {
-      <option value='@stylist.GetId()'>@stylist.GetName()</option>
+        
+            <option value='@stylist.GetId()'>@stylist.GetName()</option>
+        
     }
 
   </select>
