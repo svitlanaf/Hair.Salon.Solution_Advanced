@@ -214,5 +214,21 @@ namespace HairSalon.Tests
       CollectionAssert.AreEqual(newList, result);
     }
 
+
+    // [TestMethod]
+    // public void DeleteAll_DeletesClientAssociationsFromDatabase_ClientList()
+    // {
+    //   Client testClient = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
+    //   testClient.Save();
+    //   string testName = "Home stuff";
+    //   Category testCategory = new Category(testName);
+    //   testCategory.Save();
+    //   testCategory.AddItem(testItem);
+    //   testCategory.Delete();
+    //   List<Category> resultItemCategories = testItem.GetCategories();
+    //   List<Category> testItemCategories = new List<Category> {};
+    //   CollectionAssert.AreEqual(testItemCategories, resultItemCategories);
+    // }
+
   }
 }

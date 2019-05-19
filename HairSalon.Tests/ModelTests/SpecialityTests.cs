@@ -42,5 +42,20 @@ namespace HairSalon.Tests
     }
 
 
+    [TestMethod]
+    public void DeleteAll_DeletesSpecialityAssociationsFromDatabase_SpecialityList()
+    {
+      Speciality testSpeciality = new Speciality("Cut");
+      testSpeciality.Save();
+      Stylist testStylist = new Stylist("Emmaline", "Has an experience in the beauty industry.");
+      testStylist.Save();
+      testSpeciality.AddStylist(testStylist);
+      testSpeciality.Delete();
+      List<Speciality> resultStylistSpecialities = testStylist.GetSpecialities();
+      List<Speciality> testStylistSpecialities = new List<Speciality> {};
+      CollectionAssert.AreEqual(resultStylistSpecialities, testStylistSpecialities);
+    }
+
+
   }
 }

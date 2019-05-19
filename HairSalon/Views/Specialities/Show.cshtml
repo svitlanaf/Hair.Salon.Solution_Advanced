@@ -3,13 +3,13 @@
 @using System.Collections.Generic;
 
 <h1>Snappy Snips</h1>
-<h2>Speciality: @Model["speciality"].GetName()</h2>
+<h2>Speciality: @Model["selectedSpeciality"].GetName()</h2>
 
-<form method="post" action='/specialities/@Model["speciality"].GetId()/delete'>
+<form method="post" action='/specialities/@Model["selectedSpeciality"].GetId()/delete'>
   <button type="submit">Delete</button>
 </form>
 
-<form method="get" action='/specialities/@Model["speciality"].GetId()/edit'>
+<form method="get" action='/specialities/@Model["selectedSpeciality"].GetId()/edit'>
     <button type="submit">Edit</button>
 </form>
 <hr />
@@ -27,7 +27,7 @@
 
 <h4>Add a stylist to this speciality:</h4>
 
-<form action='/specialities/@Model["speciality"].GetId()/stylists/new' method='post'>
+<form action='/specialities/@Model["selectedSpeciality"].GetId()/stylists/new' method='post'>
   <label for='stylistId'>Select a stylist</label>
   <select id='stylistId' name='stylistId' type='text'>
 
@@ -41,6 +41,7 @@
   </select>
   <button type='submit'>Add</button>
 </form>
+
 
 <h3><a href='/stylists/new'>Add a new stylist</a></h3><br>
 
