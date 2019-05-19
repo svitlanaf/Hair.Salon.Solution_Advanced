@@ -170,27 +170,18 @@ namespace HairSalon.Models
     }
 
 
-    public static List<Speciality> DeleteAll()
+    public static void DeleteAll()
     {
-      List<Speciality> allSpecialities = new List<Speciality> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
-      cmd.CommandText = @"DELETE FROM specialities WHERE id = @SpecialityId; DELETE FROM specialities_stylists WHERE speciality_id = @SpecialityId;";
-      var rdr = cmd.ExecuteReader() as MySqlDataReader;
-      while(rdr.Read())
-      {
-        int SpecialityId = rdr.GetInt32(0);
-        string SpecialityName = rdr.GetString(1);
-        Speciality newSpeciality = new Speciality(SpecialityName, SpecialityId);
-        allSpecialities.Add(newSpeciality);
-      }
+      cmd.CommandText = @"DELETE FROM specialties; DELETE FROM specialties_stylists;";
+      cmd.ExecuteNonQuery();
       conn.Close();
       if (conn != null)
       {
         conn.Dispose();
-      }
-      return allSpecialities;
+      }      
     }
     
 
