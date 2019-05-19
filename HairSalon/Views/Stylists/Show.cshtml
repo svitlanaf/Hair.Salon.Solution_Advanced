@@ -28,6 +28,18 @@
     }
 
 
+<h4>Add a speciality to this stylist:</h4>
+
+<form action='/stylists/@Model["stylist"].GetId()/specialities/new' method='post'>
+  <label for='specialityId'>Select a speciality</label>
+  <select id='specialityId' name='specialityId' type='text'>
+    @foreach (var speciality in @Model["allSpecialities"])
+    {
+      <option value='@speciality.GetId()'>@speciality.GetName()</option>
+    }
+  </select>
+  <button type='submit'>Add</button>
+</form>
 
 
 
