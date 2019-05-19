@@ -81,5 +81,14 @@ namespace HairSalon.Controllers
     }
 
 
+    [HttpPost("/specialities/{specialityId}/edit")]
+    public ActionResult Update(int specialityId, string name)
+    {
+        Speciality thisSpeciality = Speciality.Find(specialityId);
+        thisSpeciality.Edit(name);
+        return RedirectToAction("Show", new { id = specialityId });
+    }
+
+
   }
 }
