@@ -9,6 +9,10 @@
   <button type="submit">Delete</button>
 </form>
 
+<form method="get" action='/clients/@Model["selectedClient"].GetId()/edit'>
+    <button type="submit">Edit</button>
+</form>
+
 <hr />
 
 @if (@Model["clientStylists"].Count != 0)

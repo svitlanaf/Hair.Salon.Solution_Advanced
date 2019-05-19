@@ -1,0 +1,14 @@
+@using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
+
+
+<form action="/clients/@Model.GetId()/edit" method="post">
+ <label >Client name:</label>
+ <input  name="newName" type="text" value="@Model.GetName()"><br>
+ <label >Details:</label>
+ <textarea class= "k-textbox" style="width:100%; height: 70px;"  name="newDetails" type="text">@Model.GetDetails()</textarea><br>
+ <label >Appointment date</label>
+ <input  name='newAppointment' type='date' value="@Model.GetAppointment()"><br>
+ 
+ <button type="submit">Save</button>

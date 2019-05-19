@@ -168,25 +168,31 @@ namespace HairSalon.Models
             conn.Close();
         }
     }
+
+
+    public static List<Speciality> DeleteAll()
+    {
+      List<Speciality> allSpecialities = new List<Speciality> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM specialities WHERE id = @SpecialityId; DELETE FROM specialities_stylists WHERE speciality_id = @SpecialityId;";
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int SpecialityId = rdr.GetInt32(0);
+        string SpecialityName = rdr.GetString(1);
+        Speciality newSpeciality = new Speciality(SpecialityName, SpecialityId);
+        allSpecialities.Add(newSpeciality);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+      return allSpecialities;
+    }
     
-
-
-    // public void DeleteAll()
-    // {
-    //     MySqlConnection conn = DB.Connection();
-    //     conn.Open();
-    //     MySqlCommand cmd = new MySqlCommand( "DELETE FROM specialities WHERE id = @SpecialityId; DELETE FROM specialities_stylists WHERE speciality_id = @SpecialityId;", conn);
-    //     MySqlParameter specialityIdParameter = new MySqlParameter();
-    //     specialityIdParameter.ParameterName = "@SpecialityId";
-    //     specialityIdParameter.Value = this.GetId();
-    //     cmd.Parameters.Add(specialityIdParameter);
-    //     cmd.ExecuteNonQuery();
-
-    //     if (conn != null)
-    //     {
-    //         conn.Close();
-    //     }
-    // }
 
 
     public List<Stylist> GetStylists()

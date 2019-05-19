@@ -4,7 +4,7 @@
 
 
 <form action="/specialities/@Model.GetId()/edit" method="post">
- <label for="name">Speciality name:</label>
- <input required id="name" name="name" type="text" value="@Model.GetName()"><br>
+ <label >Speciality name:</label>
+ <input name="newName" type="text" value="@Model.GetName()"><br>
  <button type="submit">Save</button>
 </form>

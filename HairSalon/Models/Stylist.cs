@@ -166,7 +166,7 @@ namespace HairSalon.Models
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
-      MySqlCommand cmd = new MySqlCommand( "DELETE FROM stylists WHERE id = @StylistId;", conn);
+      MySqlCommand cmd = new MySqlCommand( "DELETE FROM stylists WHERE id = @StylistId; DELETE FROM specialities_stylists WHERE stylist_id = @StylistId; DELETE FROM stylists_clients WHERE stylist_id = @StylistId;", conn);
       MySqlParameter stylistIdParameter = new MySqlParameter();
       stylistIdParameter.ParameterName = "@StylistId";
       stylistIdParameter.Value = this.GetId();
