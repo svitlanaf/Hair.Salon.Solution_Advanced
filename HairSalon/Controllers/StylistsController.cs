@@ -93,7 +93,6 @@ namespace HairSalon.Controllers
     public ActionResult Destroy(int id)
     {
         Stylist deleteStylist = Stylist.Find(id);
-
         deleteStylist.Delete();
         return RedirectToAction("Index");
     }
