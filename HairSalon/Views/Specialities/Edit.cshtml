@@ -1,0 +1,10 @@
+@using HairSalon.Models;
+@using System;
+@using System.Collections.Generic;
+
+
+<form action="/specialities/@Model.GetId()" method="post">
+ <label for="name">Speciality name:</label>
+ <input required id="name" name="name" type="text" value="@Model.GetName()"><br>
+ <button type="submit">Save</button>
+</form>

@@ -15,3 +15,5 @@
 /Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.csproj.CopyComplete
 /Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.dll
 /Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/obj/Debug/netcoreapp2.2/HairSalon.Tests.pdb
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Views.dll
+/Users/Kapriss/Desktop/Epicodus/cSharp/HairSalon.Solution/HairSalon.Tests/bin/Debug/netcoreapp2.2/HairSalon.Views.pdb

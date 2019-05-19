@@ -72,5 +72,14 @@ namespace HairSalon.Controllers
         return RedirectToAction("Index");
     }
 
+
+    [HttpGet("/specialities/{id}/edit")]
+    public ActionResult Edit(int id)
+    {
+        Speciality editSpeciality = Speciality.Find(id);
+        return View(editSpeciality);
+    }
+
+
   }
 }

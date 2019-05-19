@@ -8,6 +8,10 @@
 <form method="post" action='/specialities/@Model["speciality"].GetId()/delete'>
   <button type="submit">Delete</button>
 </form>
+
+<form method="get" action='/specialities/@Model["speciality"].GetId()/edit'>
+    <button type="submit">Edit</button>
+</form>
 <hr />
 
 @if (@Model["specialityStylists"].Count != 0)

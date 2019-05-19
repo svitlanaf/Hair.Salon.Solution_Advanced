@@ -179,21 +179,21 @@ namespace HairSalon.Tests
         Stylist testStylist = new Stylist("Emmaline", "");
         testStylist.Save();
         string secondName = "Anna";
-        testStylist.Edit(secondName, "");
+        testStylist.Edit(secondName);
         string result = Stylist.Find(testStylist.GetId()).GetName();
         Assert.AreEqual(secondName, result);
         }
 
-        [TestMethod]
-        public void Edit_UpdatesStylistInformationInDatabase_String()
-        {
-        Stylist testStylist = new Stylist("", "Has an experience in the beauty industry.");
-        testStylist.Save();
-        string secondInformation = "Super hair dresser.";
-        testStylist.Edit("", secondInformation);
-        string result = Stylist.Find(testStylist.GetId()).GetInformation();
-        Assert.AreEqual(secondInformation, result);
-        }
+        // [TestMethod]
+        // public void Edit_UpdatesStylistInformationInDatabase_String()
+        // {
+        // Stylist testStylist = new Stylist("", "Has an experience in the beauty industry.");
+        // testStylist.Save();
+        // string secondInformation = "Super hair dresser.";
+        // testStylist.Edit("", secondInformation);
+        // string result = Stylist.Find(testStylist.GetId()).GetInformation();
+        // Assert.AreEqual(secondInformation, result);
+        // }
 
     }
 }

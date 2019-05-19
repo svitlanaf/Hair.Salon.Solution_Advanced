@@ -51,6 +51,8 @@ namespace HairSalon.Controllers
         return View(model);
     }
 
+
+
     [HttpGet("/stylists/{id}/clients")]
     public ActionResult ShowClients(int id)
     {
@@ -87,13 +89,22 @@ namespace HairSalon.Controllers
         return RedirectToAction("Index");
     }
 
-
-
+    
     [HttpGet("/stylists/{id}/edit")]
     public ActionResult Edit(int id)
     {
         Stylist editStylist = Stylist.Find(id);
         return View(editStylist);
+    }
+
+
+    [HttpPost("/stylists/{stylistId}/edit")]
+    public ActionResult Update(int stylistId, string newName)
+    {
+        Stylist thisStylist = Stylist.Find(stylistId);
+        thisStylist.Edit(newName);
+        // thisStylist.Edit(information);
+        return RedirectToAction("Show", new { id = stylistId });
     }
 
   }

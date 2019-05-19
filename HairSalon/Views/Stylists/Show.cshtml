@@ -28,25 +28,11 @@
     }
 
 
-<h4>Add an existing client to this stylist:</h4>
-
-<form action='/stylists/@Model["stylist"].GetId()/clients/new' method='post'>
-  <label for='clientId'>Select a client</label>
-  
-  <select id='clientId' name='clientId' type='text'>
-
-    @foreach (var client in @Model["allClients"])
-    {
-      <option value='@client.GetId()'>@client.GetName()</option>
-    }
-
-  </select>
-  <button type='submit'>Add</button>
-</form>
 
 
 
-<h3><a href='/clients/new'>Add a new client</a></h3><br>
+
+
 
 <h3><a href='/stylists/@Model["stylist"].GetId()/clients'>List of clients</a></h3><br>
 
