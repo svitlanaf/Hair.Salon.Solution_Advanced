@@ -46,7 +46,7 @@ namespace HairSalon.Tests
     public void Equals_ReturnsTrueIfNamesAreTheSame_Speciality()
     {
     Speciality firstSpeciality = new Speciality("Cut");
-    Speciality secondSpeciality = new Speciality("Color");
+    Speciality secondSpeciality = new Speciality("Cut");
     Assert.AreEqual(firstSpeciality, secondSpeciality);
     }
 
