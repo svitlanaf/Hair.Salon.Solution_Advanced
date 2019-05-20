@@ -91,6 +91,14 @@ namespace HairSalon.Controllers
     }
 
 
+    [HttpPost("/specialities/deleteall")]
+    public ActionResult DeleteAll()
+    {
+        Speciality.DeleteAll();
+        return RedirectToAction("Index", "Home");
+    }
+
+
     [HttpGet("/specialities/{id}/edit")]
     public ActionResult Edit(int id)
     {
