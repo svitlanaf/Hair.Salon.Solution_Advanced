@@ -1,8 +1,9 @@
 @using HairSalon.Models;
 @using System;
 @using System.Collections.Generic;
+@{ Layout = "_Layout"; }
 
-<h1>Snappy Snips</h1>
+
 <h2>Client: @Model["selectedClient"].GetName()</h2>
 
 <form method="post" action='/clients/@Model["selectedClient"].GetId()/delete'>

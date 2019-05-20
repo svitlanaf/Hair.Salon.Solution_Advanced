@@ -81,11 +81,11 @@ namespace HairSalon.Controllers
     public ActionResult Destroy(int id)
     {
         Speciality deleteSpeciality = Speciality.Find(id);
-        List<Stylist> deleteStylists = deleteSpeciality.GetStylists();
-        foreach(Stylist stylist in deleteStylists)
-        {
-            stylist.Delete();
-        }
+        // List<Stylist> deleteStylists = deleteSpeciality.GetStylists();
+        // foreach(Stylist stylist in deleteStylists)
+        // {
+        //     stylist.Delete();
+        // }
         deleteSpeciality.Delete();
         return RedirectToAction("Index");
     }
