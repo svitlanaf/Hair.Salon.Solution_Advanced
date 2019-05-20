@@ -16,10 +16,12 @@ namespace HairSalon.Tests
         Speciality.ClearAll();
         }
 
+
         public StylistTest()
         {
         DBConfiguration.ConnectionString = "server=localhost;user id=root;password=root;port=8889;database=svitlana_filatova_test;";
         }
+
 
         [TestMethod]
         public void StylistConstructor_CreatesInstanceOfStylist_Stylist()
@@ -29,6 +31,7 @@ namespace HairSalon.Tests
         Stylist newStylist = new Stylist(name, information);
         Assert.AreEqual(typeof(Stylist), newStylist.GetType());
         }
+
 
         [TestMethod]
         public void GetInformation_ReturnsInformation_String()
@@ -40,6 +43,7 @@ namespace HairSalon.Tests
         Assert.AreEqual(information, result);
         }
 
+
         [TestMethod]
         public void GetName_ReturnsName_String()
         {
@@ -50,6 +54,7 @@ namespace HairSalon.Tests
         Assert.AreEqual(name, result);
         }
 
+
         [TestMethod]
         public void Equals_ReturnsTrueIfInformationsAreTheSame_Stylist()
         {
@@ -58,6 +63,7 @@ namespace HairSalon.Tests
         Assert.AreEqual(firstStylist, secondStylist);
         }
 
+
         [TestMethod]
         public void Equals_ReturnsTrueIfNamesAreTheSame_Stylist()
         {
@@ -65,6 +71,7 @@ namespace HairSalon.Tests
         Stylist secondStylist = new Stylist("Emmaline", "");
         Assert.AreEqual(firstStylist, secondStylist);
         }
+
 
         [TestMethod]
         public void Find_ReturnsStylistInDatabase_Stylist()
@@ -75,6 +82,7 @@ namespace HairSalon.Tests
         Assert.AreEqual(testStylist, foundStylist);
         }
 
+
         [TestMethod]
         public void GetAll_ReturnsEmptyListFromDatabase_StylistList()
         {
@@ -83,12 +91,14 @@ namespace HairSalon.Tests
         CollectionAssert.AreEqual(newList, result);
         }
 
+
         [TestMethod]
         public void GetAll_StylistEmptyAtFirst_List()
         {
         int result = Stylist.GetAll().Count;
         Assert.AreEqual(0, result);
         }
+
 
         [TestMethod]
         public void GetClients_ReturnsAllStylistClients_ClientList()
@@ -104,6 +114,7 @@ namespace HairSalon.Tests
         List<Client> testList = new List<Client> {testClient};
         CollectionAssert.AreEqual(testList, savedClients);
         }
+
 
         [TestMethod]
         public void Test_AddClient_AddsClientToStylist()
@@ -121,6 +132,7 @@ namespace HairSalon.Tests
         CollectionAssert.AreEqual(testList, result);
         }
 
+
         [TestMethod]
         public void Test_AddSpeciality_AddsSpecialityToStylist()
         {
@@ -137,6 +149,7 @@ namespace HairSalon.Tests
         CollectionAssert.AreEqual(testList, result);
         }
 
+
         [TestMethod]
         public void GetSpecialities_ReturnsAllStylistSpecialities_SpecialityList()
         {
@@ -152,6 +165,7 @@ namespace HairSalon.Tests
         CollectionAssert.AreEqual(testList, savedSpecialities);
         }
 
+
         [TestMethod]
         public void Save_SavesStylistToDatabase_StylistList()
         {
@@ -161,6 +175,7 @@ namespace HairSalon.Tests
         List<Stylist> testList = new List<Stylist>{testStylist};
         CollectionAssert.AreEqual(testList, result);
         }
+
 
         [TestMethod]
         public void Save_DatabaseAssignsIdToStylist_Id()
@@ -173,6 +188,7 @@ namespace HairSalon.Tests
         Assert.AreEqual(testId, result);
         }
 
+
         [TestMethod]
         public void Edit_UpdatesStylistNameInDatabase_String()
         {
@@ -184,18 +200,41 @@ namespace HairSalon.Tests
         Assert.AreEqual(secondName, result);
         }
 
-        // [TestMethod]
-        // public void Edit_UpdatesStylistInformationInDatabase_String()
-        // {
-        // Stylist testStylist = new Stylist("", "Has an experience in the beauty industry.");
-        // testStylist.Save();
-        // string secondInformation = "Super hair dresser.";
-        // testStylist.Edit("", secondInformation);
-        // string result = Stylist.Find(testStylist.GetId()).GetInformation();
-        // Assert.AreEqual(secondInformation, result);
-        // }
+        
+        [TestMethod]
+        public void Delete_DeletesStylistAssociationsFromDatabase_StylistList()
+        {
+        Stylist testStylist = new Stylist("Emmaline", "Has an experience in the beauty industry.");
+        testStylist.Save();
+        Client testClient = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
+        testClient.Save();
+        testStylist.AddClient(testClient);
+        testStylist.Delete();
+        List<Client> clientList = Client.GetAll(); 
+        Assert.AreEqual(clientList.Count, 1);
+        List<Stylist> resultStylistClients = testClient.GetStylists();
+        Assert.AreEqual(resultStylistClients.Count, 0);
+        }
 
 
+        [TestMethod]
+        public void DeleteAll_DeletesAllStylistFromDatabase_EmptyStylistList()
+        {
+        Stylist testStylist1 = new Stylist("Emmaline", "Has an experience in the beauty industry.");
+        testStylist1.Save();
+        Stylist testStylist2 = new Stylist("Anna", "Super awesome stylist.");
+        testStylist2.Save();
+        Client testClient = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
+        testClient.Save();
+        testStylist1.AddClient(testClient);
+        testStylist2.AddClient(testClient);
+        testStylist1.Delete();
+        testStylist2.Delete();
+        List<Client> clientList = Client.GetAll(); 
+        Assert.AreEqual(clientList.Count, 1);
+        List<Stylist> resultStylistClients = testClient.GetStylists();
+        Assert.AreEqual(resultStylistClients.Count, 0);
+        }
 
     }
 }

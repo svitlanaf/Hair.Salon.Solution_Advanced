@@ -42,9 +42,9 @@ namespace HairSalon.Controllers
         Stylist stylist = Stylist.Find(id);
         List<Speciality> allSpecialities = Speciality.GetAll();
         List<Client> allClients = Client.GetAll();
-        List<Speciality> allStylistSpecialty = stylist.GetSpecialities();
+        List<Speciality> allStylistSpecialities = stylist.GetSpecialities();
 
-        model.Add("allStylistSpecialty", allStylistSpecialty);
+        model.Add("allStylistSpecialities", allStylistSpecialities);
         model.Add("stylist", stylist);
         model.Add("allSpecialities", allSpecialities);  
         model.Add("allClients", allClients);
@@ -60,9 +60,6 @@ namespace HairSalon.Controllers
         Stylist selectedStylist = Stylist.Find(id);
         List<Client> stylistClients = selectedStylist.GetClients();
         List<Client> allClients = Client.GetAll();
-        // List<Speciality> allStylistSpecialty = selectedStylist.GetSpecialities();
-
-        // model.Add("allStylistSpecialty", allStylistSpecialty);
         model.Add("stylist", selectedStylist);
         model.Add("stylistClients", stylistClients);  
         model.Add("allClients", allClients);

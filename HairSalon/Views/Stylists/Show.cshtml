@@ -21,9 +21,9 @@
 
   <h4>Specialities of this stylist:</h4>
   
-    @foreach (var specialty in @Model["allStylistSpecialty"])
+    @foreach (var speciality in @Model["allStylistSpecialities"])
     {
-      @specialty.GetName();
+      @speciality.GetName();
       <br>
     }
 

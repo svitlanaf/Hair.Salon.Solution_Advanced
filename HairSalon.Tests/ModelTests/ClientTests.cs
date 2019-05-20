@@ -215,20 +215,30 @@ namespace HairSalon.Tests
     }
 
 
-    // [TestMethod]
-    // public void DeleteAll_DeletesClientAssociationsFromDatabase_ClientList()
-    // {
-    //   Client testClient = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
-    //   testClient.Save();
-    //   string testName = "Home stuff";
-    //   Category testCategory = new Category(testName);
-    //   testCategory.Save();
-    //   testCategory.AddItem(testItem);
-    //   testCategory.Delete();
-    //   List<Category> resultItemCategories = testItem.GetCategories();
-    //   List<Category> testItemCategories = new List<Category> {};
-    //   CollectionAssert.AreEqual(testItemCategories, resultItemCategories);
-    // }
+    [TestMethod]
+    public void Delete_DeletesClientFromDatabase_ClientList()
+    {
+    Client testClient = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
+    testClient.Save();
+    testClient.Delete();
+    List<Client> resultList = Client.GetAll();
+    List<Client> testList = new List<Client> {};
+    CollectionAssert.AreEqual(resultList, testList);
+    }
+
+
+    [TestMethod]
+    public void DeleteAll_DeletesAllClientsFromDatabase_EmptyClientList()
+    {
+    Client testClient1 = new Client("Lana", "Hair coloring", new DateTime(1/2/2019));
+    testClient1.Save();
+    Client testClient2 = new Client("Lora", "Hair coloring", new DateTime(1/2/2019));
+    testClient2.Save();
+    Client.DeleteAll();
+    List<Client> resultList = Client.GetAll();
+    List<Client> testList = new List<Client> {};
+    CollectionAssert.AreEqual(resultList, testList);
+    }
 
   }
 }
