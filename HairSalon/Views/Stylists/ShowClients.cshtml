@@ -29,13 +29,15 @@
 <h4>Add an existing client to this stylist:</h4>
 
 <form action='/stylists/@Model["stylist"].GetId()/clients/add' method='post'>
-  <label for='clientId'>Select a client</label>
-  
-  <select id='clientId' name='clientId' type='text'>
+    <select id='clientId' name='clientId' type='text'>
+      <option value="0">Select A Client</option>
 
     @foreach (var client in @Model["allClients"])
     {
+      if(!@Model["stylist"].GetClients().Contains(client))
+      {
       <option value='@client.GetId()'>@client.GetName()</option>
+      }
     }
 
   </select>

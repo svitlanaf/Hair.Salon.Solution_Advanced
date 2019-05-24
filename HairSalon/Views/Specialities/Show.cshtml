@@ -26,17 +26,19 @@
   
 }
 
-<h4>Add a stylist to this speciality:</h4>
+<h4>Add a stylist to this speciality:</h4><br>
 
 <form action='/specialities/@Model["selectedSpeciality"].GetId()/stylists/new' method='post'>
-  <label for='stylistId'>Select a stylist</label>
   <select id='stylistId' name='stylistId' type='text'>
+    <option value="0">Select A Stylist</option>
 
     @foreach (var stylist in @Model["allStylists"])
     {
+      @if(!@Model["selectedSpeciality"].GetStylists().Contains(stylist))
+        {
         
-            <option value='@stylist.GetId()'>@stylist.GetName()</option>
-        
+          <option value='@stylist.GetId()'>@stylist.GetName()</option>
+        }
     }
 
   </select>
