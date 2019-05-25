@@ -21,11 +21,21 @@ body
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
+a#nav
+{
+  color: #232323;
+}
+
 a
 {
   text-decoration: none;
-  color: #232323;
+  color: #cdcdcd;
   transition: color 0.3s ease;
+}
+
+a#nav:hover
+{
+  color: tomato;
 }
 
 a:hover
@@ -141,10 +151,10 @@ a:hover
   <span></span>
   <span></span>
     <ul id="menu">
-      <a href="/"><li>Home</li></a>
-      <a href="/specialities"><li>Specialities</li></a>
-      <a href="/stylists"><li>Stylists</li></a>
-      <a href="/clients"><li>Clients</li></a>
+      <a id="nav" href="/"><li>Home</li></a>
+      <a id="nav" href="/specialities"><li>Specialities</li></a>
+      <a id="nav" href="/stylists"><li>Stylists</li></a>
+      <a id="nav" href="/clients"><li>Clients</li></a>
     </ul>
   </div>
 </nav>
