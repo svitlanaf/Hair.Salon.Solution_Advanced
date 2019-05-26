@@ -3,18 +3,43 @@
 @using System.Collections.Generic;
 @{ Layout = "_Layout"; }
 
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
 
-<h2>Client: @Model["selectedClient"].GetName()</h2>
+  body {background-color: #232323;}
 
+  h1 {color: tomato;}
+
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
+  
+  
+<h1>Client: @Model["selectedClient"].GetName()</h1>
+<div class="row">
+<div class="col-md-2">
 <form method="post" action='/clients/@Model["selectedClient"].GetId()/delete'>
-  <button type="submit">Delete</button>
+  <button class="btn" type="submit">Delete</button>
 </form>
+</div>
 
+<div class="col-md-2">
 <form method="get" action='/clients/@Model["selectedClient"].GetId()/edit'>
-    <button type="submit">Edit</button>
+    <button class="btn" type="submit">Edit</button>
 </form>
-
-<hr />
+</div>
+</div>
+<br>
 
 @if (@Model["clientStylists"].Count != 0)
 {
@@ -24,29 +49,26 @@
     @foreach (Stylist stylist in @Model["clientStylists"])
     { 
 
-      <h2>@stylist.GetName()</h2><br>
-
-      @foreach (Speciality speciality in stylist.GetSpecialities())
-      {
-        @speciality.GetName()<br>
-      }
-
+      <h5>@stylist.GetName()</h5>
       
     }
 }
 
+<br><br>
 <h4>Add a stylist to this client:</h4>
 
 <form action='/clients/@Model["selectedClient"].GetId()/stylists/new' method='post'>
-  <label for='stylistId'>Select a stylist</label>
   <select id='stylistId' name='stylistId' type='text'>
+    <option value="0">Select A Stylist</option>
     @foreach (var stylist in @Model["allStylists"])
     {
-      <option value='@stylist.GetId()'>@stylist.GetName()</option>
+       @if(!@Model["selectedClient"].GetStylists().Contains(stylist))
+        {
+        
+          <option value='@stylist.GetId()'>@stylist.GetName()</option>
+        }
     }
   </select>
-  <button type='submit'>Add</button>
+  <button class="btn" type='submit'>Add</button>
 </form>
-
-<p><a href="/">Return to Main Page</a></p>
-
+</div>

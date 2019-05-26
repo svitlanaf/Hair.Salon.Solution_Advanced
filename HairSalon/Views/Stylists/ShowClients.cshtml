@@ -4,25 +4,44 @@
 @{ Layout = "_Layout"; }
 
 
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
 
-<h2>Stylist: @Model["stylist"].GetName()</h2><br>
-<p>@Model["stylist"].GetInformation()</p><br>
+  body {background-color: #232323;}
+
+  h1 {color: tomato;}
+
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
+<h1>Stylist: @Model["stylist"].GetName()</h1><br>
+<h5>@Model["stylist"].GetInformation()</h5><br>
 
 
 @if (@Model["stylistClients"].Count != 0)
 {
-  <h4>Clients of this stylist:</h4>
+  <h4>Clients of this stylist:</h4><br>
   
     @foreach (var client in @Model["stylistClients"])
     {
-      <p><strong>Name: </strong></p>@client.GetName()<br>
-      <p><strong>Details: </strong></p>@client.GetDetails()<br>
-      <p><strong>Appointment </strong></p>@client.GetAppointment()<br>
+      <h6><strong>Name: </strong>@client.GetName()</h6>
+      <h6><strong>Details: </strong>@client.GetDetails()</h6>
+      <h6><strong>Appointment </strong>@client.GetAppointment()</h6>
       <br>
     }
   
 }
-
+<br>
 <h3><a href='/stylists/@Model["stylist"].GetId()/clients/new'>Add a new client</a></h3><br>
 
 
@@ -41,8 +60,7 @@
     }
 
   </select>
-  <button type='submit'>Add</button>
+  <button class="btn" type='submit'>Add</button>
 </form>
+</div>
 
-
-<h3><a href='/stylists'>Back to stylists</a></h3>

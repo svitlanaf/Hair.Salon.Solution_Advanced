@@ -3,8 +3,27 @@
 @using System.Collections.Generic;
 @{ Layout = "_Layout"; }
 
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
 
-<h2>Stylists:</h2>
+  body {background-color: #232323;}
+
+  h1 {color: tomato;}
+
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
+<h1>Stylists</h1>
 
 @if(Model.Count < 1)
 {
@@ -16,15 +35,13 @@
   
     @foreach (var stylist in Model)
     {
-      <a href="/stylists/@stylist.GetId()">@stylist.GetName()</a><br>
+      <h5><a href="/stylists/@stylist.GetId()">@stylist.GetName()</a></h5>
     }
   
 }
 
 <br>
 <form method="post" action='/stylists/deleteall'>
-  <button type="submit">Delete all</button>
+  <button class="btn"  type="submit">Delete all</button>
 </form>
-
-<!-- <h4><a href="/stylists/new">Add a new stylist</a></h4> -->
-<h4><a href="/">Return home</a></h4>
+</div>

@@ -2,29 +2,35 @@
 @using System;
 @using System.Collections.Generic;
 @{ Layout = "_Layout"; }
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
 
-<html>
+  body {background-color: #232323;}
 
-<head>
-    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-</head>
-<body>
+  h1 {color: tomato;}
 
+  .row {margin-top: 40px; margin-bottom: 40px;}
 
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
 <form action="/stylists/@Model/clients/new" method="post">
  <label for="name">Client name:</label>
  <input required id="name" name="name" type="text" /><br>
- <label for="details">Details:</label>
- <textarea class= "k-textbox" style="width:100%; height: 70px;" required id="details" name="details" type="text" ></textarea><br>
+ <label for="details">Details:</label><br>
+ <textarea class= "k-textbox" style="width:90%; height: 70px;" required id="details" name="details" type="text" ></textarea><br>
  <label for='appointment'>Appointment date</label>
 <input id='appointment' name='appointment' type="date" /><br>
 
- <button type="submit" >Save</button>
+ <button class="btn" type="submit" >Save</button>
 </form> 
 
-<p><a href="/">Back home</a></p>
-
-
-</body>
-</html>
+</div>

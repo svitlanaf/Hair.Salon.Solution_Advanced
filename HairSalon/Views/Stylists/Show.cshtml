@@ -4,30 +4,52 @@
 @{ Layout = "_Layout"; }
 
 
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
 
-<h2>Stylist: @Model["stylist"].GetName()</h2><br>
-<p>@Model["stylist"].GetInformation()</p><br>
+  body {background-color: #232323;}
 
+  h1 {color: tomato;}
+
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
+<h1>Stylist: @Model["stylist"].GetName()</h1><br>
+<h5>@Model["stylist"].GetInformation()</h5><br>
+
+<div class="row">
+  <div class="col-md-2">
 <form method="post" action='/stylists/@Model["stylist"].GetId()/delete'>
-  <button type="submit">Delete</button>
+  <button class="btn" type="submit">Delete</button>
 </form>
+</div>
 
+<div class="col-md-2">
 <form method="get" action='/stylists/@Model["stylist"].GetId()/edit'>
-    <button type="submit">Edit</button>
+    <button class="btn" type="submit">Edit</button>
 </form>
-
-
-
+</div>
+</div>
+<br><br>
 
   <h4>Specialities of this stylist:</h4>
   
     @foreach (var speciality in @Model["allStylistSpecialities"])
     {
-      @speciality.GetName();
-      <br>
+      <h5>@speciality.GetName()</h5>;
     }
 
-
+<br><br>
 <h4>Add a speciality to this stylist:</h4><br>
 
 <form action='/stylists/@Model["stylist"].GetId()/specialities/new' method='post'>
@@ -42,15 +64,9 @@
       }
     }
   </select>
-  <button type='submit'>Add</button>
+  <button class="btn" type='submit'>Add</button>
 </form>
 
-
-
-
-
-
+<br><br>
 <h3><a href='/stylists/@Model["stylist"].GetId()/clients'>List of clients</a></h3><br>
-
-
-<p><a href="/">Return to Main Page</a></p>
+</div>

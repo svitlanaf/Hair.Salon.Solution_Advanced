@@ -3,13 +3,33 @@
 @using System.Collections.Generic;
 @{ Layout = "_Layout"; }
 
+<style>
+  .container {margin: 20px; margin-left: 160px; margin-right: 50px;}
+
+  body {background-color: #232323;}
+
+  h1 {color: tomato;}
+
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+ 
+
+  </style>
+
+<div class="container">
 <h1>Add a stylist</h1>
 
 <form action="/stylists" method="post">
   <label for="name">Stylist name:</label>
  <input required id="name" name="name" type="text"><br>
- <label for="information">Information:</label>
- <textarea class= "k-textbox" style="width:100%; height: 70px;" required id="information" name="information" type="text" ></textarea><br>
+ <label for="information">Information:</label><br>
+ <textarea class= "k-textbox" style="width: 90%; height: 70px;" required id="information" name="information" type="text" ></textarea><br>
 
 
   <select id='specialityId' name='specialityId' type='text'>
@@ -20,10 +40,9 @@
   </select>
 
 
-  <button type="submit">Add</button>
+  <button class="btn" type="submit">Add</button>
 </form>
+</div>
 
-<p><a href="/">Back home</a></p>
-<p><a href="/stylists">Back to stylists</a></p>
 
 
