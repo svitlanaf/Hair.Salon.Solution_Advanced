@@ -4,29 +4,61 @@
 @{ Layout = "_Layout"; }
 
 
-<h2>Speciality: @Model["selectedSpeciality"].GetName()</h2>
+<style>
+  .container {margin: 20px; margin-left: 160px;}
 
-<form method="post" action='/specialities/@Model["selectedSpeciality"].GetId()/delete'>
-  <button type="submit">Delete</button>
-</form>
+  body {background-color: #232323;}
 
-<form method="get" action='/specialities/@Model["selectedSpeciality"].GetId()/edit'>
-    <button type="submit">Edit</button>
-</form>
-<hr />
+  h1 {color: tomato;}
 
-@if (@Model["specialityStylists"].Count != 0)
-{
-  <h4>Here are all the stylists of this speciality:</h4>
-  
-    @foreach (var stylist in @Model["specialityStylists"])
+  .row {margin-top: 40px; margin-bottom: 40px;}
+
+  .btn:hover
+  {
+    color: tomato;
+  }
+
+  .col-md-6 {margin-top: 50px; margin-bottom: 20px;}
+  #stylistId (wi)
+
+  </style>
+
+
+<div class="container">
+  <h1>Speciality: @Model["selectedSpeciality"].GetName()</h1>
+
+<div class="row">
+  <div class="col-md-2">
+    <form method="post" action='/specialities/@Model["selectedSpeciality"].GetId()/delete'>
+      <button class="btn" type="submit">Delete</button>
+    </form>
+    </div>
+
+  <div class="col-md-2">
+    <form method="get" action='/specialities/@Model["selectedSpeciality"].GetId()/edit'>
+        <button class="btn" type="submit">Edit</button>
+    </form>
+    </div>
+  </div>  
+
+<div class="row">
+  <div class="col-md-6">
+    @if (@Model["specialityStylists"].Count != 0)
     {
-      @stylist.GetName()<br>
+      <h2>Stylists of this speciality:</h2>
+      
+        @foreach (var stylist in @Model["specialityStylists"])
+        {
+          <h5>@stylist.GetName()</h5>
+        }
+      
     }
-  
-}
+    </div>
+  </div>
 
-<h4>Add a stylist to this speciality:</h4><br>
+<div class="row">
+  <div class="col-md-6">
+<h3>Add a stylist:</h3><br>
 
 <form action='/specialities/@Model["selectedSpeciality"].GetId()/stylists/new' method='post'>
   <select id='stylistId' name='stylistId' type='text'>
@@ -42,13 +74,15 @@
     }
 
   </select>
-  <button type='submit'>Add</button>
+  <button class="btn" type='submit'>Add</button>
 </form>
-
+</div>
+</div>
 
 <h3><a href='/stylists/new'>Add a new stylist</a></h3><br>
 
 
 
 
-<p><a href="/">Return to Main Page</a></p>
+<!-- <p><a href="/">Return to Main Page</a></p> -->
+</div>

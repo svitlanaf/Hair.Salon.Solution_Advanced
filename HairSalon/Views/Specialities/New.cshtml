@@ -3,14 +3,16 @@
 @using System.Collections.Generic;
 @{ Layout = "_Layout"; }
 
+<div class="container">
 <h1>Add a speciality</h1>
 
 <form action="/specialities" method="post">
   <label >Speciality name</label>
   <input name="name" type="text">
 
-  <button type="submit">Add</button>
+  <button class="btn" type="submit">Add</button>
 </form>
+</div>
 
-<p><a href="/">Back home</a></p>
-<p><a href="/specialities">Back to specialities</a></p>
+<!-- <p><a href="/">Back home</a></p>
+<p><a href="/specialities">Back to specialities</a></p> -->
